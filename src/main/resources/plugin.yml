@@ -1,0 +1,9 @@
+name: MCTycoon
+version: 1.0.0
+main: dev.vacariu.MCTycoon.TycoonMain
+description: Stealgens plugin
+author: andreivacariu
+website: https://vacariu.dev
+api-version: '1.16'
+commands:
+  tycoon:
