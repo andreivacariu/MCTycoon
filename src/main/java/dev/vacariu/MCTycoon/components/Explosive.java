@@ -4,18 +4,15 @@ import dev.vacariu.MCTycoon.TycoonMain;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
-public class ProtectionBlock {
+public class Explosive {
     private final TycoonMain main;
     public final Block block;
-    public final Player owner;
-
     public int tier;
 
-    public ProtectionBlock(TycoonMain main, Block block, int tier, Player owner) {
+    public Explosive(TycoonMain main, Block block, int tier) {
         this.main = main;
         this.block = block;
         this.tier = tier;
-        this.owner = owner;
     }
 
 

@@ -16,7 +16,7 @@ public class RewardManager {
 
     public List<ItemStack> GetRewardForGenerator(Generator generator){
         List<ItemStack> money = new ArrayList<>();
-        money.add(pl.bankNoteManager.getBankNote(5 * generator.getTier(),1));
+        money.add(pl.bankNoteItemManager.getBankNote(5 * generator.tier,1));
         return money;
     }
 

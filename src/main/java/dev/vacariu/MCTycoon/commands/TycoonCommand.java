@@ -1,5 +1,8 @@
 package dev.vacariu.MCTycoon.commands;
 
+import dev.vacariu.MCTycoon.managers.items.ExplosiveItemManager;
+import dev.vacariu.MCTycoon.managers.items.GeneratorItemManager;
+import dev.vacariu.MCTycoon.managers.items.DefenseItemManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -41,7 +44,7 @@ public class TycoonCommand implements CommandExecutor {
                 }
 
 
-                ItemStack bankNote = pl.bankNoteManager.getBankNote(currency,amount);
+                ItemStack bankNote = pl.bankNoteItemManager.getBankNote(currency,amount);
                 InventoryUtils.addItem(p,bankNote);
                 return true;
             }
@@ -66,6 +69,10 @@ public class TycoonCommand implements CommandExecutor {
                     p.sendMessage(Utils.asColor("&cWrong amount number!"));
                     return true;
                 }
+                if(tier > GeneratorItemManager.material.size()) {
+                    p.sendMessage("§fYou reached §4MAXIMUM §fGenerator level.");
+                    return true;
+                }
 
 
                 ItemStack generator = pl.generatorItemManager.getGenerator(tier,amount);
@@ -74,7 +81,7 @@ public class TycoonCommand implements CommandExecutor {
             }
         }
 
-        if (args.length==3&&args[0].equalsIgnoreCase("getprotection")){
+        if (args.length==3&&args[0].equalsIgnoreCase("getdefense")){
             if (sender.hasPermission("tycoon.admin") && sender instanceof Player){
                 Player p = (Player) sender;
                 int tier = 0;
@@ -93,10 +100,44 @@ public class TycoonCommand implements CommandExecutor {
                     p.sendMessage(Utils.asColor("&cWrong amount number!"));
                     return true;
                 }
+                if(tier > DefenseItemManager.protectionTiers.size()) {
+                    p.sendMessage("§fYou reached §4MAXIMUM §fDefense level.");
+                    return true;
+                }
 
 
-                ItemStack protection = pl.protectionItemManager.getProtection(tier,amount);
+                ItemStack protection = pl.defenseItemManager.getProtection(tier,amount);
                 InventoryUtils.addItem(p,protection);
+                return true;
+            }
+        }
+        if (args.length==3&&args[0].equalsIgnoreCase("getexplosive")){
+            if (sender.hasPermission("tycoon.admin") && sender instanceof Player){
+                Player p = (Player) sender;
+                int tier = 0;
+                int amount = 0;
+
+                try{
+                    tier = Integer.parseInt(args[1]);
+                }catch (Exception ex){
+                    p.sendMessage(Utils.asColor("&cWrong tier number!"));
+                    return true;
+                }
+
+                try{
+                    amount = Integer.parseInt(args[2]);
+                }catch (Exception ex){
+                    p.sendMessage(Utils.asColor("&cWrong amount number!"));
+                    return true;
+                }
+                if(tier > ExplosiveItemManager.explosiveTiers.size()) {
+                    p.sendMessage("§fYou reached §4MAXIMUM §fExplosive level.");
+                    return true;
+                }
+
+
+                ItemStack explosive = pl.explosiveItemManager.getExplosive(tier,amount);
+                InventoryUtils.addItem(p,explosive);
                 return true;
             }
         }

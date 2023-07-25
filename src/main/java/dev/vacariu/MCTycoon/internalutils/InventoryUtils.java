@@ -10,7 +10,7 @@ public class InventoryUtils {
 
     public static void addItem(Player player, ItemStack toAdd){
         if (player.getInventory().firstEmpty()==-1){
-            player.sendMessage(Utils.asColor("&cAi primit un item dar nu ai avut destul spatiu,se arunca pe jos!"));
+            player.sendMessage(Utils.asColor("&cYou recieved an item but you don't have enough space, and its dropped on the ground!"));
             player.getWorld().dropItemNaturally(player.getLocation(),toAdd);
             return;
         }
