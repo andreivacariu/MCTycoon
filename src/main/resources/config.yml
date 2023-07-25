@@ -1,0 +1,40 @@
+#
+#      88b           d88    ,ad8888ba,       888888888888  8b        d8    ,ad8888ba,     ,ad8888ba,      ,ad8888ba,    888b      88
+#      888b         d888   d8"'    `"8b           88        Y8,    ,8P    d8"'    `"8b   d8"'    `"8b    d8"'    `"8b   8888b     88
+#      88`8b       d8'88  d8'                     88         Y8,  ,8P    d8'            d8'        `8b  d8'        `8b  88 `8b    88
+#      88 `8b     d8' 88  88                      88          "8aa8"     88             88          88  88          88  88  `8b   88
+#      88  `8b   d8'  88  88                      88           `88'      88             88          88  88          88  88   `8b  88
+#      88   `8b d8'   88  Y8,                     88            88       Y8,            Y8,        ,8P  Y8,        ,8P  88    `8b 88
+#      88    `888'    88   Y8a.    .a8P           88            88        Y8a.    .a8P   Y8a.    .a8P    Y8a.    .a8P   88     `8888
+#      88     `8'     88    `"Y8888Y"'            88            88         `"Y8888Y"'     `"Y8888Y"'      `"Y8888Y"'    88      `888
+#
+# Plugin made by andreivacariu for RoyalMC
+# Each setting will be explained below.
+# DM @andreivacariu. for help.
+
+defense:
+   enabled: true # enable defense blocks
+
+explosives:
+   enabled: true # enable explosives
+
+generator:
+   dropInterval: 60 # interval to drop generated items at. default: 60
+   startingSlots: 5 # default player slots for generators. default: 5
+
+hopper:
+   startingSlots: 10 # starting player slots for hoppers. default: 10
+
+messages:
+   banknote:
+      soldBanknotes: "&fYou sold &b%totalBanknotes%x &rbanknotes for &b⛁%totalValue%&f." # 2 placeholders available: totalBanknotes - all banknotes sold; totalValue - value in $ of banknotes sold
+   defense:
+      placeDefense: "&fYou placed down a &aDefense Block&f."
+      breakDefense: "&fYou broke a &aDefense Block&f."
+   generator:
+      placeGenerator: "&fYou &aplaced &rdown a &aGenerator&f."
+      breakGenerator: "&fYou &4broke &ra &4Generator&f."
+      breakOthersGenerator: "&fYou broke &4%player%&f's &4Generator&f." # 1 placeholder available: %player% - represents whose generator was broken
+      maxLevel: "&fYou reached &4MAXIMUM &fGenerator level. Can't upgrade further."
+      notEnoughMoney: "&fYou need &4⛁%moneyNeeded%&f to upgrade your &4Generator&f." # 1 placeholder available: %moneyNeeded% - money needed by the player in order to upgrade the generator
+      upgradeGenerator: "&fYou upgraded your &aGenerator &ffor &a⛁%moneyPaid%&f." # 1 placeholder available: %moneyPaid% - money paid for the generator upgrade

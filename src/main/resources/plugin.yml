@@ -5,5 +5,7 @@ description: Stealgens plugin
 author: andreivacariu
 website: https://vacariu.dev
 api-version: '1.16'
+depend: [RedLib, Vault]
 commands:
   tycoon:
+  shop:
